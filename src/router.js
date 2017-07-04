@@ -1,6 +1,3 @@
-/**
- * Created by elvis on 2017/7/3.
- */
 import React from 'react'
 import PropTypes from 'react-types'
 import { Router } from 'dva/router'
@@ -12,7 +9,17 @@ const registerModel = (app, model) => {
   }
 };
 const Routers = function ({ history, app }) {
-
+  const routes = [
+    {
+      path: '/',
+      component: App,
+      getIndexRoute (nextState, cb) {
+        require.ensure([], require => {
+          registerModel(app, require('./models/dashboard'))
+          cb(null, {component: require('./routes/dashboard/')})
+        }, 'dashboard')
+      },
+    }]
 };
 
 Routers.propTypes = {
