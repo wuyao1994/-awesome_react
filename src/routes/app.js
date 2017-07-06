@@ -1,13 +1,26 @@
 import React from 'react'
-import PropType from 'react-types'
+import PropTypes from 'prop-types'
+import { connect } from 'dva'
+import { config } from '../utils'
+const { prefix } = config
 
 
-const App = () => {
+const App = ({ children, location, dispatch, app, loading }) => {
+  if (config.openPages && config.openPages.indexOf(location.pathname) > -1) {
+    return <div>{children}</div>
+  }
 
+  return (<div>
+    {children}
+  </div>)
 }
 
 App.propTypes = {
-
+  children: PropTypes.element.isRequired,
+  location: PropTypes.object,
+  dispatch: PropTypes.func,
+  app: PropTypes.object,
+  loading: PropTypes.object,
 }
 
-export default App
+export default connect(({ app, loading }) => ({ app, loading }))(App)

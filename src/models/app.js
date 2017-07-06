@@ -1,6 +1,3 @@
-/**
- * Created by elvis on 2017/7/3.
- */
 import { routerRedux } from 'dva/router'
 import { parse } from 'qs'
 import { query } from '../services/app'
@@ -20,13 +17,21 @@ export default {
     *query({payload}, {call, put}) {
       const data = yield call(query, parse(payload));
       if (data.success && data.user) {
-
-      } else {
-        let from = location.pathname;
-        if (location.pathname === '/dashboard') {
-          form = '/dashboard';
+        yield put({
+          type: 'querySuccess',
+          payload: data.user,
+        });
+        if (location.pathname === '/login') {
+          yield put(routerRedux.push('/dashboard'))
         }
-        window.location = `${location.origin}/login?from=${from}`
+      } else {
+        if (location.pathname !== '/login') {
+          let from = location.pathname
+          if (location.pathname === '/dashboard') {
+            from = '/dashboard'
+          }
+          window.location = `${location.origin}/login?from=${from}`
+        }
       }
     }
   },
