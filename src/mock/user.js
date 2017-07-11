@@ -66,7 +66,7 @@ module.exports = {
       res.cookie('token', JSON.stringify({id: user[0].id, deadline: now.getTime()}), {
         maxAge: 90000,
         httpOnly: true,
-      })
+      });
     } else {
       res.status(400).end()
     }

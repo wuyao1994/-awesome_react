@@ -17,6 +17,7 @@ export default {
       const data = yield call(login, payload)
       yield put({ type: 'hideLoginLoading' })
       if (data.success) {
+        console.log('success')
         const from = queryURL('from');
         yield put({ type: 'app/query' });
         if (from) {
