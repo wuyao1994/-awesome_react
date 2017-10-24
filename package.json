@@ -6,7 +6,7 @@
     "antd": "^2.9.1",
     "classnames": "^2.2.5",
     "draftjs-to-markdown": "^0.4.0",
-    "dva": "^1.1.0",
+    "dva": "^2.0.1",
     "dva-loading": "^0.2.0",
     "lodash": "^4.17.4",
     "nprogress": "^0.2.0",
@@ -16,7 +16,9 @@
     "react-dom": "^15.4.1",
     "react-draft-wysiwyg": "^1.8.1",
     "react-helmet": "^5.0.0",
-    "recharts": "^0.19.0"
+    "recharts": "^0.19.0",
+    "history": "^4.7.2",
+    "prop-types": "^15.5.10"
   },
   "devDependencies": {
     "axios": "^0.15.3",
@@ -39,13 +41,13 @@
     "path-to-regexp": "^1.7.0",
     "rc-tween-one": "^1.0.0",
     "redbox-react": "^1.2.10",
-    "roadhog": "0.6.0-beta.6"
+    "roadhog": "^1.2.2"
   },
   "pre-commit": [
     "lint"
   ],
   "scripts": {
-    "dev": "set BROWSER=none&&set HOST=0.0.0.0&&set PORT=8002&&roadhog server",
+    "dev": "set BROWSER=none&&set HOST=127.0.0.1&&set PORT=8002&&roadhog server",
     "lint": "eslint --fix --ext .js src",
     "build": "roadhog build --analyze"
   }

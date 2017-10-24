@@ -7,7 +7,7 @@ module.exports = {
   iconFontJS: '/iconfont.js',
   baseURL: 'http://localhost:8002/api/v1',
   YQL: ['http://www.zuimeitianqi.com'],
-  CORS: ['http://localhost:7000'],
+  CORS: ['http://localhost:8002'],
   openPages: ['/login'],
   apiPrefix: '/api/v1',
   api: {
