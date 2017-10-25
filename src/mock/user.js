@@ -67,6 +67,7 @@ module.exports = {
         maxAge: 90000,
         httpOnly: true,
       });
+      res.json({ success: true, message: 'Ok' })
     } else {
       res.status(400).end()
     }
